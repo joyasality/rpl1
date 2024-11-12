@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body, html {
+  height: 100%;
+  margin: 0;
+  font: 400 15px/1.8 "Lato", sans-serif;
+  color: #777;
+}
+
+.bgimg-1, .bgimg-2, .bgimg-3, .bgimg-4 {
+  position: relative;
+  opacity: 0.65;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+.bgimg-1 {
+  background-image: url("img_parallax.jpg");
+  min-height: 100%;
+}
+
+.bgimg-2 {
+  background-image: url("img_parallax2.jpg");
+  min-height: 400px;
+}
+
+.bgimg-3 {
+  background-image: url("img_parallax3.jpeg");
+  min-height: 400px;
+}
+
+.bgimg-4 {
+  background-image: url("1693530548255.jpg");
+  min-height: 400px;
+}
+
+.caption {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+  color: #000;
+}
+
+.caption span.border {
+  background-color: #111;
+  color: #fff;
+  padding: 18px;
+  font-size: 25px;
+  letter-spacing: 10px;
+}
+
+h3 {
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  font: 20px "Lato", sans-serif;
+  color: #111;
+}
+
+/* Turn off parallax scrolling for tablets and phones */
+@media only screen and (max-device-width: 1024px) {
+  .bgimg-1, .bgimg-2, .bgimg-3, .bgimg-4 {
+    background-attachment: scroll;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="bgimg-1">
+  <div class="caption">
+  <span class="border">TEKAN DAN SCROLL</span>
+  </div>
+</div>
+
+<div style="color: #777;background-color:white;text-align:center;padding:50px 80px;text-align: justify;">
+  <h3 style="text-align:center;">XII RPL 1</h3>
+  <p>2022 menjadi awal pertemuan kita. Di lembaran baru perjalanan hidup, ibu langsung diberikan amanah yang luar biasa berat dan menantang yang didalamnya pasti ada ujian. 35 angka yang kecil kalau dibandingkan dengan 50, tetapi menjadi besar, ketika dibandingkan dengan angka 1. 1 orang walikelas dituntut untuk bisa memahami, mendampingi, mengayomi dan membimbing, yang didalamnya ada beberapa macam karakter yang tidak begitu saja bisa/mau untuk nurut, mengikuti anjurannya.
+  </p>
+  <p>Dari kalian, ibu banyak belajar menjadi orang tua yang harus cinta dan sayang pada saat anaknya membuatnya sedih atau senang. Dari kalian ibu banyak belajar, menyaksikan perubahan kalian dari kelas x sampai sekarang. Kisah-kisah nakal kalian yang menjadikan titik awal untuk menjadi lebih baik. Teruslah belajar, memahami hidup lebih bijak.</p>
+</div>
+
+<div class="bgimg-2">
+  <div class="caption">
+  <span class="border" style="background-color:transparent;font-size:25px;color: #f7f7f7;">OUR MEMORY</span>
+  </div>
+</div>
+
+<div style="position:relative;">
+  <div style="color:#ddd;background-color:#282E34;text-align:center;padding:50px 80px;text-align: justify;">
+  <p>Scroll up and down to see all.</p>
+  </div>
+</div>
+
+<div class="bgimg-3">
+  <div class="caption">
+  <span class="border" style="background-color:transparent;font-size:25px;color: #f7f7f7;">SCROLL UP</span>
+  </div>
+</div>
+
+<div style="position:relative;">
+  <div style="color:#ddd;background-color:#282E34;text-align:center;padding:10px 80px;text-align: justify;">
+  <p>Scroll up and down to see all.</p>
+  </div>
+</div>
+
+<div class="bgimg-4">
+  <div class="caption">
+  <span class="border">COOL!</span>
+  </div>
+</div>
+
+<div style="position:relative;">
+  <div style="color:#ddd;background-color:#282E34;text-align:center;padding:10px 80px;text-align: center;">
+  <p>&copy; RPL 1</p>
+  </div>
+</div>
+
+<audio id="audio" preload="auto">
+  <source src="009. One Direction - Story of My Life.mp3" type="audio/mp3">
+  Your browser does not support the audio element.
+</audio>
+
+<script>
+  // Mengambil elemen audio
+  const audio = document.getElementById('audio');
+  
+  // Fungsi untuk memutar audio saat scroll pertama kali
+  function playAudioOnScroll() {
+      audio.play().then(() => {
+          // Menghapus event listener setelah audio mulai diputar
+          window.removeEventListener('scroll', playAudioOnScroll);
+      }).catch((error) => {
+          console.log("Audio autoplay dicegah oleh browser:", error);
+      });
+  }
+
+  // Fungsi untuk mengaktifkan audio setelah klik pertama
+  function enableAudio() {
+      // Tambahkan event listener scroll setelah klik pertama
+      window.addEventListener('scroll', playAudioOnScroll);
+      // Hapus event listener klik
+      window.removeEventListener('click', enableAudio);
+  }
+
+  // Tambahkan event listener klik pada seluruh halaman
+  window.addEventListener('click', enableAudio);
+</script>
+</body>
+</html>
